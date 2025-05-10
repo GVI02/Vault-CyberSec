@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
       "query": "tag:#powershell  ",
@@ -20,6 +20,13 @@
         "a": 1,
         "rgb": 15744412
       }
+    },
+    {
+      "query": "tag:#malware  ",
+      "color": {
+        "a": 1,
+        "rgb": 16117007
+      }
     }
   ],
   "collapse-display": true,
@@ -33,5 +40,5 @@
   "linkStrength": 1,
   "linkDistance": 113,
   "scale": 1.0000000000000007,
-  "close": false
+  "close": true
 }
