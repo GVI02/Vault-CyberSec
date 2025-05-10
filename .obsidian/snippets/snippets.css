@@ -1,0 +1,82 @@
+:root {
+  --green: rgb(157, 187, 97);
+  --orange: rgb(245, 157, 86);
+  --blue: rgb(75, 172, 198);
+  --red: rgb(192, 0, 0);
+  --purple: rgb(124, 65, 168);
+  --gray: rgb(64, 64, 64);
+}
+
+.green-highlight {
+  color: var(--green);
+  font-weight: bold;
+}
+
+.green-highlight-light {
+  color: var(--green);
+}
+
+.orange-highlight {
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.orange-highlight-light {
+  color: var(--orange);
+}
+
+.blue-highlight {
+  color: var(--blue);
+  font-weight: bold;
+}
+
+.blue-highlight-light {
+  color: var(--blue);
+}
+
+.red-highlight{
+  color: var(--red);
+  font-weight: bold;
+}
+
+.red-highlight-light{
+  color: var(--red);
+}
+
+.purple-highlight{
+  color: var(--purple);
+  font-weight: bold;
+}
+
+.purple-highlight-light{
+  color: var(--purple);
+}
+
+.gray-highlight{
+  color: var(--gray);
+  font-weight: bold;
+}
+
+.gray-highlight-light{
+  color: var(--gray);
+}
+
+.callout[data-callout="important"]{
+  --callout-color:  192, 0, 0;
+  --callout-icon:  octagon-alert;
+}
+
+.callout[data-callout="network"]{
+  --callout-color:  0, 81, 192;
+  --callout-icon:  network;
+}
+
+.callout[data-callout="insight"]{
+  --callout-color:  0, 192, 81;
+  --callout-icon:  brain;
+}
+
+.callout[data-callout="extra"]{
+  --callout-color:  81, 0, 192;
+  --callout-icon:  message-square-more;
+}
