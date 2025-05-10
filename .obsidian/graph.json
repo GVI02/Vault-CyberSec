@@ -6,7 +6,22 @@
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": true,
-  "colorGroups": [],
+  "colorGroups": [
+    {
+      "query": "tag:#powershell  ",
+      "color": {
+        "a": 1,
+        "rgb": 1612780
+      }
+    },
+    {
+      "query": "tag:#web  ",
+      "color": {
+        "a": 1,
+        "rgb": 15744412
+      }
+    }
+  ],
   "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
@@ -17,6 +32,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 1,
+  "scale": 0.5087618855792587,
   "close": false
 }
