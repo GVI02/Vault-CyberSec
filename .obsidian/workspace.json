@@ -21,7 +21,11 @@
           },
           {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             "id": "c38bb629188d9f9f",
+=======
+            "id": "6eee8d70dd4c4fc9",
+>>>>>>> Stashed changes
 =======
             "id": "6eee8d70dd4c4fc9",
 >>>>>>> Stashed changes
@@ -30,7 +34,11 @@
               "type": "markdown",
               "state": {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 "file": "Malware/YARA/YARA.md",
+=======
+                "file": "Malware/YARA/yarGen.md",
+>>>>>>> Stashed changes
 =======
                 "file": "Malware/YARA/yarGen.md",
 >>>>>>> Stashed changes
@@ -39,17 +47,23 @@
               },
               "icon": "lucide-file",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
               "title": "YARA"
             }
           },
           {
             "id": "21b3a326ce81975e",
 =======
+=======
+>>>>>>> Stashed changes
               "title": "yarGen"
             }
           },
           {
             "id": "c38bb629188d9f9f",
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
             "type": "leaf",
             "state": {
@@ -107,7 +121,11 @@
           }
         ],
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         "currentTab": 2
+=======
+        "currentTab": 5
+>>>>>>> Stashed changes
 =======
         "currentTab": 5
 >>>>>>> Stashed changes
@@ -256,7 +274,11 @@
     }
   },
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   "active": "21b3a326ce81975e",
+=======
+  "active": "9f2ac305c30e30e3",
+>>>>>>> Stashed changes
 =======
   "active": "9f2ac305c30e30e3",
 >>>>>>> Stashed changes
