@@ -4,11 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "66f3265151ccb05e",
+        "id": "f008d6c1fe05563f",
         "type": "tabs",
         "children": [
           {
-            "id": "4e6675c1de65bd10",
+            "id": "c31d76a46ae668cb",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "graph",
+              "state": {},
+              "pinned": true,
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          },
+          {
+            "id": "c38bb629188d9f9f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Malware/YARA/YARA.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "YARA"
+            }
+          },
+          {
+            "id": "21b3a326ce81975e",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -21,7 +47,8 @@
               "title": "YARA"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -94,7 +121,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Malware/YARA/YARA.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +130,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for YARA"
+              "title": "Backlinks"
             }
           },
           {
@@ -113,12 +139,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Malware/YARA/YARA.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from YARA"
+              "title": "Outgoing links"
             }
           },
           {
@@ -142,13 +167,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Malware/YARA/YARA.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of YARA"
+              "title": "Outline"
             }
           }
         ]
@@ -165,18 +189,26 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "4e6675c1de65bd10",
+  "active": "21b3a326ce81975e",
   "lastOpenFiles": [
-    "Web/HTTP Header Analysis.md",
+    "Malware/YARA/Valhalla.md",
+    "Malware/YARA/yarGen.md",
     "Malware/YARA/YARA.md",
-    "Malware/YARA",
+    "Malware/YARA/LOKI.md",
+    "Malware/YARA/Conditions.md",
+    "Malware/YARA/Images/Pasted image 20250512110535.png",
+    "Malware/YARA/Images",
+    "Images",
     "Malware/Malware.md",
+    "Malware/YARA",
     "Malware",
     "Web/Web.md",
     "Web/URL Shortening.md",
+    "Web/HTTP Header Analysis.md",
     "README.md"
   ]
 }
