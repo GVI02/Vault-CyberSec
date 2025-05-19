@@ -5,7 +5,7 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
       "query": "tag:#powershell  ",
@@ -40,6 +40,13 @@
       "color": {
         "a": 1,
         "rgb": 15524879
+      }
+    },
+    {
+      "query": "tag:#networking  ",
+      "color": {
+        "a": 1,
+        "rgb": 6080726
       }
     }
   ],
