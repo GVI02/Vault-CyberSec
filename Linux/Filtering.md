@@ -7,7 +7,7 @@ Filter output for specific word using **grep**.
 cat file.txt | grep "word"
 ```
 
-Eliminate duplicate lines from output using **uniq**.
+Eliminate duplicate lines from output using **uniq**. (uniq filters out **adjacent** repeating lines)
 ```shell
 cat file.txt | uniq
 ```
