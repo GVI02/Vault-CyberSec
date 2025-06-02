@@ -61,6 +61,20 @@
   color: var(--gray);
 }
 
+.green-bgrnd{
+  background-color: green;
+  color: white;
+}
+
+.red-bgrnd{
+  background-color: red;
+  color: white;
+}
+
+.yellow-bgrnd{
+  background-color: yellow;
+}
+
 .callout[data-callout="important"]{
   --callout-color:  192, 0, 0;
   --callout-icon:  octagon-alert;
