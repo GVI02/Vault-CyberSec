@@ -2,7 +2,7 @@
 
 **Back to [[Linux]]**
 
-Filter output for specific word using **grep**.
+Filter output for specific word using [[GREP]].
 ```shell
 cat file.txt | grep "word"
 ```
