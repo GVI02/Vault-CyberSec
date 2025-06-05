@@ -62,12 +62,12 @@
 }
 
 .green-bgrnd{
-  background-color: green;
+  background-color: var(--green);
   color: white;
 }
 
 .red-bgrnd{
-  background-color: red;
+  background-color: var(--red);;
   color: white;
 }
 
