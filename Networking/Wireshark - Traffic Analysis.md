@@ -76,3 +76,59 @@ Possible ARP flooding from detection.
 
 ##### <span class="purple-highlight-light">Identifying Hosts: DHCP, NetBIOS and Kerberos</span>
 
+###### <span class="blue-highlight-light">DHCP</span>
+
+- Request: `dhcp.option.dhcp == 3`
+- ACK: `dhcp.option.dhcp == 5`
+- NAK: `dhcp.option.dhcp == 6`
+
+DHCP Requests:
+- **Option 12:** Hostname.
+```
+dhcp.option.hostname == "Galaxy-A12"
+```
+- **Option 50:** Requested IP address.
+```
+string(dhcp.option.requested_ip_address) == "172.16.13.85"
+```
+- **Option 51:** Requested IP lease time.
+- **Option 61:** Client's MAC address.
+
+DHCP ACK:
+- **Option 15:** Domain name.
+- **Option 51:** Assigned IP lease time.
+
+DHCP NAK:
+- **Option 56:** Message (rejection details/reason).
+
+###### <span class="blue-highlight-light">NetBIOS</span>
+
+**NBNS** options for grabbing the low-hanging fruits:
+- **Queries:** Query details.
+
+Query details could contain name, Time to live (TTL) and IP address details.
+
+Registration requests
+```
+nbns.flags.opcode == 5
+```
+
+###### <span class="blue-highlight-light">Kerberos</span>
+
+* CNAME - username
+* SNAME - service and domain name for generated ticket
+
+User account search:
+```
+kerberos.CNameString contains "keyword"
+kerberos.CNameString and !(kerberos.CNameString contains "$" )
+```
+
+Some packets could provide hostname information in this field. To avoid this confusion, filter the `$` value. The values that end with `$` are hostnames, and the ones without it are user names.
+
+Filters for protocol version, realm and SNAME
+```
+kerberos.pvno == 5
+kerberos.realm contains ".org"
+kerberos.SNameString == "krbtg"
+```

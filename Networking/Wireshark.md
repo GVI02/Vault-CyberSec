@@ -130,28 +130,38 @@ It is impossible to memorize all details of the display filters for each protoco
 
 ###### <span class="green-highlight-light">Application Level Protocol Filters</span>
 
-| Filter                                  | Description                                           |
-| --------------------------------------- | ----------------------------------------------------- |
-| ```http```                              | Show all HTTP packets                                 |
-| ```http.response.code == 200```         | Show all packets with HTTP response code "200"        |
-| ```http.request.method == "GET"```      | Show all HTTP GET requests                            |
-| ```http.request.method == "POST"```     | Show all HTTP POST requests                           |
-| ```dns```                               | Show all DNS packets                                  |
-| ```dns.flags.response == 0```           | Show all DNS requests                                 |
-| ```dns.flags.response == 1```           | Show all DNS responses                                |
-| ```dns.qry.type == 1```                 | Show all DNS "A" records                              |
-| ```icmp.type == 3```                    | Show all ICMP Destination Unreachable packets         |
-| ```icmp.code == 3```                    | Show all ICMP Port Unreachable packets                |
-| ```dhcp``` or ```bootp```               | Show all DHCP packets                                 |
-| ```dhcp.option.type == 50```            | Show all DHCP packets that have Option 50             |
-| ```dhcp.option.dhcp == 3```             | DHCP Request                                          |
-| ```dhcp.option.dhcp == 5```             | DHCP ACK                                              |
-| ```dhcp.option.dhcp == 6```             | DHCP NAK (denied requests)                            |
-| ```dhcp.option.hostname == "79-kw"```   | Show DHCP packets with Option 12 equal to 79-kw       |
-| ```dhcp.option.requested_ip_address```  | Show DHCP packets with Option 50                      |
-| ```dhcp.option.ip_address_lease_time``` | Show DHCP packets with Option 51                      |
-| ```dhcp.option.type == 61```            | Show DHCP packets with Option 61 (client MAC address) |
-|                                         |                                                       |
+| Filter                                           | Description                                                   |
+| ------------------------------------------------ | ------------------------------------------------------------- |
+| ```http```                                       | Show all HTTP packets                                         |
+| ```http.response.code == 200```                  | Show all packets with HTTP response code "200"                |
+| ```http.request.method == "GET"```               | Show all HTTP GET requests                                    |
+| ```http.request.method == "POST"```              | Show all HTTP POST requests                                   |
+| ```dns```                                        | Show all DNS packets                                          |
+| ```dns.flags.response == 0```                    | Show all DNS requests                                         |
+| ```dns.flags.response == 1```                    | Show all DNS responses                                        |
+| ```dns.qry.type == 1```                          | Show all DNS "A" records                                      |
+| ```icmp.type == 3```                             | Show all ICMP Destination Unreachable packets                 |
+| ```icmp.code == 3```                             | Show all ICMP Port Unreachable packets                        |
+| ```dhcp``` or ```bootp```                        | Show all DHCP packets                                         |
+| ```dhcp.option.type == 50```                     | Show all DHCP packets that have Option 50                     |
+| ```dhcp.option.dhcp == 3```                      | DHCP Request                                                  |
+| ```dhcp.option.dhcp == 5```                      | DHCP ACK                                                      |
+| ```dhcp.option.dhcp == 6```                      | DHCP NAK (denied requests)                                    |
+| ```dhcp.option.hostname == "79-kw"```            | Show DHCP packets with Option 12 equal to 79-kw               |
+| ```dhcp.option.requested_ip_address```           | Show DHCP packets with Option 50                              |
+| ```dhcp.option.ip_address_lease_time```          | Show DHCP packets with Option 51                              |
+| ```dhcp.option.type == 61```                     | Show DHCP packets with Option 61 (client MAC address)         |
+| ```dhcp.option.domain_name```                    | Show packets with DHCP option 15                              |
+| ```dhcp.option.domain_name contains "keyword"``` | Show packets with domain name option that contains "keyword"  |
+| ```dhcp.option.type == 56```                     | Show DHCP packets with the message option set                 |
+| ```nbns```                                       | Show NetBIOS packets                                          |
+| ```nbns.flags.opcode == 5```                     | Show NetBIOS registration requests                            |
+| ```nbns.name contains "keyword"```               | Show NetBIOS packets with "keyword" in the name field         |
+| ```kerberos```                                   | Show Kerberos packets                                         |
+| ```kerberos.CNameString contains "keyword"```    | Filter Kerberos packets where the username contains "keyword" |
+| ```kerberos.pvno == 5```                         | Show Kerberos packets with protocol version 5                 |
+| ```kerberos.realm contains ".org"```             | Show Kerberos packets with domain name ".org"                 |
+| ```kerberos.SNameString == "krbtg"```            | Show Kerberos tickets with SNAME krbtg                        |
 
 ###### <span class="green-highlight-light">Advanced Filters</span>
 

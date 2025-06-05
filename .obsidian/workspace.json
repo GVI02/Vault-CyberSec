@@ -25,12 +25,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Networking/Wireshark.md",
+                "file": "Networking/Wireshark - Traffic Analysis.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Wireshark"
+              "title": "Wireshark - Traffic Analysis"
             }
           }
         ],
@@ -184,8 +184,8 @@
   },
   "active": "ec210d610c275ff5",
   "lastOpenFiles": [
-    "Networking/Wireshark - Traffic Analysis.md",
     "Networking/Wireshark.md",
+    "Networking/Wireshark - Traffic Analysis.md",
     "Linux/Forensics/Forensics.md",
     "Pasted image 20250603124733.png",
     "Networking/Images/Pasted image 20250603123234.png",
