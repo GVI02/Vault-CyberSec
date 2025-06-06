@@ -1,5 +1,5 @@
 #web
 
 [[OWASP 10]]
-[[HTTP Header Analysis]]
+[[HTTP]]
 [[URL Shortening]]

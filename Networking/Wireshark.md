@@ -105,6 +105,10 @@ It is impossible to memorize all details of the display filters for each protoco
 | ```ip.src == 10.10.10.11```    | Show all packets originated from 10.10.10.111                   |
 | ```ip.dst == 10.10.10.111```   | Show all packets sent to 10.10.10.111                           |
 | ```ip.ttl < 10```              | Show all IP packets with a TTL less than 10                     |
+| ```icmp```                     | Show all ICMP packets                                           |
+| ```icmp.type == 3```           | Show all ICMP Destination Unreachable packets                   |
+| ```icmp.code == 3```           | Show all ICMP Port Unreachable packets                          |
+| ```data.len > 64```            | Show all packets with data larger than 64 bytes                 |
 
 ###### <span class="green-highlight-light">TCP and UDP Filters</span>
 
@@ -130,38 +134,68 @@ It is impossible to memorize all details of the display filters for each protoco
 
 ###### <span class="green-highlight-light">Application Level Protocol Filters</span>
 
-| Filter                                           | Description                                                   |
-| ------------------------------------------------ | ------------------------------------------------------------- |
-| ```http```                                       | Show all HTTP packets                                         |
-| ```http.response.code == 200```                  | Show all packets with HTTP response code "200"                |
-| ```http.request.method == "GET"```               | Show all HTTP GET requests                                    |
-| ```http.request.method == "POST"```              | Show all HTTP POST requests                                   |
-| ```dns```                                        | Show all DNS packets                                          |
-| ```dns.flags.response == 0```                    | Show all DNS requests                                         |
-| ```dns.flags.response == 1```                    | Show all DNS responses                                        |
-| ```dns.qry.type == 1```                          | Show all DNS "A" records                                      |
-| ```icmp.type == 3```                             | Show all ICMP Destination Unreachable packets                 |
-| ```icmp.code == 3```                             | Show all ICMP Port Unreachable packets                        |
-| ```dhcp``` or ```bootp```                        | Show all DHCP packets                                         |
-| ```dhcp.option.type == 50```                     | Show all DHCP packets that have Option 50                     |
-| ```dhcp.option.dhcp == 3```                      | DHCP Request                                                  |
-| ```dhcp.option.dhcp == 5```                      | DHCP ACK                                                      |
-| ```dhcp.option.dhcp == 6```                      | DHCP NAK (denied requests)                                    |
-| ```dhcp.option.hostname == "79-kw"```            | Show DHCP packets with Option 12 equal to 79-kw               |
-| ```dhcp.option.requested_ip_address```           | Show DHCP packets with Option 50                              |
-| ```dhcp.option.ip_address_lease_time```          | Show DHCP packets with Option 51                              |
-| ```dhcp.option.type == 61```                     | Show DHCP packets with Option 61 (client MAC address)         |
-| ```dhcp.option.domain_name```                    | Show packets with DHCP option 15                              |
-| ```dhcp.option.domain_name contains "keyword"``` | Show packets with domain name option that contains "keyword"  |
-| ```dhcp.option.type == 56```                     | Show DHCP packets with the message option set                 |
-| ```nbns```                                       | Show NetBIOS packets                                          |
-| ```nbns.flags.opcode == 5```                     | Show NetBIOS registration requests                            |
-| ```nbns.name contains "keyword"```               | Show NetBIOS packets with "keyword" in the name field         |
-| ```kerberos```                                   | Show Kerberos packets                                         |
-| ```kerberos.CNameString contains "keyword"```    | Filter Kerberos packets where the username contains "keyword" |
-| ```kerberos.pvno == 5```                         | Show Kerberos packets with protocol version 5                 |
-| ```kerberos.realm contains ".org"```             | Show Kerberos packets with domain name ".org"                 |
-| ```kerberos.SNameString == "krbtg"```            | Show Kerberos tickets with SNAME krbtg                        |
+| Filter                                           | Description                                                          |
+| ------------------------------------------------ | -------------------------------------------------------------------- |
+| ```http```                                       | Show all HTTP packets                                                |
+| ```http2```                                      | Show all HTTP2 packets                                               |
+| ```http.response.code == 200```                  | Show all packets with HTTP response code "200". [[HTTP]] codes.      |
+| ```http.request```                               | Show all HTTP requests                                               |
+| ```http.request.method == "GET"```               | Show all HTTP GET requests                                           |
+| ```http.request.method == "POST"```              | Show all HTTP POST requests                                          |
+| ```http.user_agent == "nmap"```                  | Show all HTTP packets with user agent "nmap"                         |
+| ```http.request.uri contains "admin"```          | Show all HTTP packets with a URI that contains "admin"               |
+| ```http.request.full_uri contains "admin"```     | Complete URI information                                             |
+| ```http.server == "apache"```                    | Show all HTTP packets from apache servers.                           |
+| ```http.host contains "keyword"```               | Show all HTTP packets where the hostname of the server has `keyword` |
+| ```http.connection == "Keep-Alive"```            | Show all HTTP packets where the connection status is `Keep-Alive`    |
+| ```dns```                                        | Show all DNS packets                                                 |
+| ```dns.flags.response == 0```                    | Show all DNS requests                                                |
+| ```dns.flags.response == 1```                    | Show all DNS responses                                               |
+| ```dns.qry.type == 1```                          | Show all DNS "A" records                                             |
+| ```dns.qry.name == "keyword"```                  | Show DNS queries where the name is equal to "keyword"                |
+| ```dns.qry.name.len > 15```                      | Show DNS queries where the name is longer that 15 characters         |
+| ```!mdns```                                      | Disable local link device queries                                    |
+| ```dhcp``` or ```bootp```                        | Show all DHCP packets                                                |
+| ```dhcp.option.type == 50```                     | Show all DHCP packets that have Option 50                            |
+| ```dhcp.option.dhcp == 3```                      | DHCP Request                                                         |
+| ```dhcp.option.dhcp == 5```                      | DHCP ACK                                                             |
+| ```dhcp.option.dhcp == 6```                      | DHCP NAK (denied requests)                                           |
+| ```dhcp.option.hostname == "79-kw"```            | Show DHCP packets with Option 12 equal to 79-kw                      |
+| ```dhcp.option.requested_ip_address```           | Show DHCP packets with Option 50                                     |
+| ```dhcp.option.ip_address_lease_time```          | Show DHCP packets with Option 51                                     |
+| ```dhcp.option.type == 61```                     | Show DHCP packets with Option 61 (client MAC address)                |
+| ```dhcp.option.domain_name```                    | Show packets with DHCP option 15                                     |
+| ```dhcp.option.domain_name contains "keyword"``` | Show packets with domain name option that contains "keyword"         |
+| ```dhcp.option.type == 56```                     | Show DHCP packets with the message option set                        |
+| ```nbns```                                       | Show NetBIOS packets                                                 |
+| ```nbns.flags.opcode == 5```                     | Show NetBIOS registration requests                                   |
+| ```nbns.name contains "keyword"```               | Show NetBIOS packets with "keyword" in the name field                |
+| ```kerberos```                                   | Show Kerberos packets                                                |
+| ```kerberos.CNameString contains "keyword"```    | Filter Kerberos packets where the username contains "keyword"        |
+| ```kerberos.pvno == 5```                         | Show Kerberos packets with protocol version 5                        |
+| ```kerberos.realm contains ".org"```             | Show Kerberos packets with domain name ".org"                        |
+| ```kerberos.SNameString == "krbtg"```            | Show Kerberos tickets with SNAME krbtg                               |
+| ```ftp```                                        | Shows all FTP packets                                                |
+| ```ftp.response.code == 211```                   | FTP system status for x1x series                                     |
+| ```ftp.response.code == 212```                   | FTP directory status for x1x series                                  |
+| ```ftp.response.code == 212```                   | FTP file status for x1x series                                       |
+| ```ftp.response.code == 220```                   | FTP service ready for x2x series                                     |
+| ```ftp.response.code == 227```                   | FTP entering passive mode for x2x series                             |
+| ```ftp.response.code == 228```                   | FTP entering long passive mode for x2x series                        |
+| ```ftp.response.code == 229```                   | FTP entering extended passive mode for x2x series                    |
+| ```ftp.response.code == 230```                   | FTP user login for x3x series                                        |
+| ```ftp.response.code == 231```                   | FTP user logout for x3x series                                       |
+| ```ftp.response.code == 331```                   | FTP valid username for x3x series                                    |
+| ```ftp.response.code == 430```                   | FTP invalid username or password for x3x series                      |
+| ```ftp.response.code == 530```                   | FTP no login, invalid password for x3x series                        |
+| ```ftp.request.command == "USER"```              | FTP username command                                                 |
+| ```ftp.request.command == "PASS"```              | FTP password command                                                 |
+| ```ftp.request.command == "CWD"```               | FTP current working directory command                                |
+| ```ftp.request.command == "LIST"```              | FTP list command                                                     |
+| ```tls```                                        | Show all TLS packets                                                 |
+| ```tls.handshake.type == 1```                    | Show all TLS client requests                                         |
+| ```tls.handshake.type == 2```                    | Show all TLS server response                                         |
+| ```ssdp```                                       | Local Simple Service Discovery Protocol (SSDP)                       |
 
 ###### <span class="green-highlight-light">Advanced Filters</span>
 
@@ -250,3 +284,26 @@ Wireshark is a multifunctional tool that helps analysts to accomplish in-depth p
 ![[Pasted image 20250603124733.png]]
 
 
+#### <span class="purple-highlight-light">Tools</span>
+
+##### <span class="blue-highlight-light">Credentials</span>
+
+Some Wireshark dissectors (FTP, HTTP, IMAP, pop and SMTP) are programmed to extract cleartext passwords from the capture file. You can view detected credentials using the **"Tools --> Credentials"** menu. This feature works only after specific versions of Wireshark (v3.1 and later). Since the feature works only with particular protocols, it is suggested to have manual checks and not entirely rely on this feature to decide if there is a cleartext credential in the traffic.
+
+![[Pasted image 20250607003210.png]]
+
+##### <span class="blue-highlight-light">Creating firewall rules</span>
+
+You have investigated the traffic, detected anomalies and created notes for further investigation. What is next? Not every case investigation is carried out by a crowd team. As a security analyst, there will be some cases you need to spot the anomaly, identify the source and take action. Wireshark is not all about packet details; it can help you to create firewall rules ready to implement with a couple of clicks. You can create firewall rules by using the **"Tools --> Firewall ACL Rules"** menu. Once you use this feature, it will open a new window and provide a combination of rules (IP, port and MAC address-based) for different purposes. Note that these rules are generated for implementation on an outside firewall interface.  
+
+Currently, Wireshark can create rules for:
+
+- Netfilter (iptables)
+- Cisco IOS (standard/extended)
+- IP Filter (ipfilter)
+- IPFirewall (ipfw)
+- Packet filter (pf)
+- Windows Firewall (netsh new/old format)
+
+
+![[Pasted image 20250607003512.png]]
