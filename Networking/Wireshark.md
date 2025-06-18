@@ -1,7 +1,9 @@
 #networking 
 
 **Back to: [[Networking]]**
-**Next: [[Wireshark - Traffic Analysis]]**
+**Next:
+[[Wireshark - Traffic Analysis]]
+[[TShark]]**
 
 #### <span class="purple-highlight-light">Filtering</span>
 
@@ -94,6 +96,7 @@ It is impossible to memorize all details of the display filters for each protoco
 | ```arp.opcode == 2```                                                     | ARP responses                          |
 | ```arp.dst.hw_mac == 00:00:00:00:00:00```                                 | Show packets from specific MAC address |
 | ```arp.duplicate-address-detected```<br>```arp.duplicate-address-frame``` | Show duplicated-address ARP messages   |
+| ```frame.time```                                                          | Timestamp of the frame                 |
 
 ###### <span class="green-highlight-light">IP Filters</span>
 
