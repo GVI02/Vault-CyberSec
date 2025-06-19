@@ -5,10 +5,10 @@
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
+  "collapse-color-groups": false,
   "colorGroups": [
     {
-      "query": "tag:#powershell  ",
+      "query": "tag:#windows",
       "color": {
         "a": 1,
         "rgb": 1612780
